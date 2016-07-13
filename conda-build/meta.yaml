@@ -1,0 +1,19 @@
+package:
+  name: pfg
+  version: "0.1"
+
+source:
+  git_url: https://github.com/alexandrovteam/PFG
+  git_tag: master
+
+build:
+  number: 1
+
+test:
+  commands:
+    - $PREFIX/bin/PFG -h
+
+about:
+  home: https://github.com/alexandrovteam/PFG
+  license: MIT
+  summary: program to calculate the possible elemental compositions for a given mass
