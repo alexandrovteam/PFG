@@ -26,7 +26,6 @@ double mz(double currentmass, int finalcharge, int currentcharge,
 {
   double agentMass;
   double massMo = 0.0;
-  double massAv = 0.0;
 
   if (strcmp(agentformula, "e") == 0) {
     agentMass = ELECTRON_MASS;
@@ -49,6 +48,10 @@ double mz(double currentmass, int finalcharge, int currentcharge,
   currentmass = (currentmass + agentMass * agentCount) / abs(finalcharge);
   return currentmass;
 }
+
+static double GLHC[2] = { 0.2, 3 };
+static double GLNOPSC[4] = { 2, 1.2, 0.32, 0.65 };
+static double GLRDBE[2] = { 0, 40 };
 
 int frules(char *string, int countC, int countH, int countO, int countN,
            int countP, int countS, double rdbevalue, vector<char *> rules)
@@ -493,10 +496,10 @@ int main(int argc, char *argv[]) {
 
   int mincount[30];
   int maxcount[30];
-  for (int i = 0; i < mini.size(); i++) {
+  for (unsigned i = 0; i < mini.size(); i++) {
     mincount[i] = mini[i];
   }
-  for (int i = 0; i < maxi.size(); i++) {
+  for (unsigned i = 0; i < maxi.size(); i++) {
     maxcount[i] = maxi[i];
   }
   calculation(cmass, compositions, mincount, maxcount, rules, tolerance, charge,

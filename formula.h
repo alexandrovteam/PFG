@@ -4,7 +4,6 @@
 #define EBUFLEN 128
 #define BUFLEN 1024
 #define ELECTRON_MASS 0.00054857990924
-#define min(a, b) a < b ? a : b
 
 #include <string>
 #include <map>
@@ -52,9 +51,6 @@ double formulaMass(vector<char *> compositions, vector<int> count);
 // compound
 double mz(double currentmass, int finalcharge, int currentcharge,
           const char *agentformula, int agentcharge);
-static double GLHC[2] = { 0.2, 3 };
-static double GLNOPSC[4] = { 2, 1.2, 0.32, 0.65 };
-static double GLRDBE[2] = { 0, 40 };
 int frules(char *string, int countC, int countH, int countO, int countN,
            int countP, int countS, double rdbevalue, vector<char *> rules);
 

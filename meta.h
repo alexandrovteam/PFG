@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <omp.h>
+#include <algorithm>
 #include "formula.h"
 
 using namespace std;
@@ -13,7 +12,7 @@ class formula_generator {
                           int maximum[], double masses[], int *current,
                           double pre_mass, double loMass, double hiMass,
                           int k) {
-    int c = min((hiMass - pre_mass) / masses[N - 1], maximum[N - 1]);
+    int c = std::min((hiMass - pre_mass) / masses[N - 1], double(maximum[N - 1]));
     if (N == elcount) {
 #pragma omp parallel for
       for (k = minimum[N - 1]; k <= c; k++) {

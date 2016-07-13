@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string.h>
-#include <malloc.h>
 #include <ctime>
 #include <string.h>
 #include <stdio.h>

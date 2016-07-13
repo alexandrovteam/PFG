@@ -955,7 +955,7 @@ double elementmass(const char *string) {
 double rdbe(vector<char *> compositions, vector<int> count) {
   init_elementlist();
   double rdbevalue = 0;
-  for (int i = 0; i < compositions.size(); i++) {
+  for (unsigned i = 0; i < compositions.size(); i++) {
     int valence = elements[compositions[i]].valence;
     if (valence) {
       rdbevalue += (valence - 2) * count[i];
@@ -968,9 +968,8 @@ double rdbe(vector<char *> compositions, vector<int> count) {
 
 double formulaMass(vector<char *> compositions, vector<int> count) {
   double formulamass = 0;
-  double massMo = 0;
   init_elementlist();
-  for (int i = 0; i < compositions.size(); i++) {
+  for (unsigned i = 0; i < compositions.size(); i++) {
     formulamass += elementmass(compositions[i]) * (count[i]);
   }
   return formulamass;
